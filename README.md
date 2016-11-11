@@ -1,15 +1,15 @@
 This plugin can be used on: **.html**, **.xml**, **.svg**, **.js**, **.css**, **.less**, **.scss**, **.php**, **.java**, **.ts**
 
 Options :  
-    - **headerCommentFile** : path of the file containing the text that must be prepended, the path is relative to the template folder
+    - **name** : path of the file containing the text that must be prepended, the path is relative to the template folder
 
 Sample usage:  
 
-    malta app/source/style.css public/css -plugins=malta-css-uglify...malta-header-comment[headerCommentFile:\"licence.txt\"]
+    malta app/source/style.css public/css -plugins=malta-css-uglify...malta-header-comment[name:\"licence.txt\"]
 
 or in the .json file :
 
-    "app/source/style.css" : "public/css -plugins=malta-css-uglify...malta-header-comment[headerCommentFile:\"licence.txt\"]"
+    "app/source/style.css" : "public/css -plugins=malta-css-uglify...malta-header-comment[name:\"licence.txt\"]"
 
 or in a script : 
 
@@ -17,7 +17,7 @@ or in a script :
     Malta.get().check([
         'app/source/style.css',
         'public/css',
-        '-plugins=malta-css-uglify...malta-header-comment[headerCommentFile:\"licence.txt\"]',
+        '-plugins=malta-css-uglify...malta-header-comment[name:\"licence.txt\"]',
         '-options=showPath:false,watchInterval:500,verbose:0'
         ]).start(function (o) {
             var s = this;

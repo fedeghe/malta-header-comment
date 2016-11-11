@@ -5,7 +5,7 @@
  * affects: .js .css .html .xml .pack.js .min.js
  * outputs: a file named as the template
  * parameters accepted:
- * - headerCommentFile: path to the file containing the comment text needed (here oen can use vars.json placeholders as weel as malta wired vars)
+ * - name: path to the file containing the comment text needed (here oen can use vars.json placeholders as weel as malta wired vars)
  * 
  * pipe support : yes
  */
@@ -16,7 +16,7 @@ function header_comment(o, options) {
 
     var start = +new Date,
         self = this,
-        fpath = options.headerCommentFile,
+        fpath = options.name,
         ext = self.utils.getFileExtension(self.outName),
         hfile = self.execDir + '/' + fpath,
         exists = fs.existsSync(hfile),
