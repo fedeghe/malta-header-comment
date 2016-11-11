@@ -1,0 +1,24 @@
+{
+  "name": "malta-header-comment",
+  "version": "0.0.4",
+  "description": "Malta plugin to add a header comment",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://fedeghe@github.com/fedeghe/malta-header-comment.git"
+  },
+  "keywords": [
+    "malta",
+    "malta plugin",
+    "malta header comment",
+    "malta header"
+  ],
+  "author": "Federico Ghedina <federico.ghedina@gmail.com>",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/fedeghe/malta-header-comment/issues"
+  },
+  "main": "./index.js"
+}
