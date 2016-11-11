@@ -20,7 +20,7 @@ function header_comment(o, options) {
         ext = self.utils.getFileExtension(self.outName),
         hfile = self.execDir + '/' + fpath,
         exists = fs.existsSync(hfile),
-        msg = false;
+        msg;
 
     o.content = exists && ext in self.comments ? 
         self.comments[ext].replace(/\%content\%/, self.replace_wiredvars(self.replace_vars(fs.readFileSync(hfile).toString()))) + o.content
@@ -42,7 +42,7 @@ function header_comment(o, options) {
         fs.writeFile(o.name, o.content, function(err) {
 
             if (err == null) {
-                msg += 'plugin ' + path.basename(__filename) + ' wrote ' + o.name +' (' + self.getSize(o.name) + ')';
+                msg += 'plugin malta-header-comment wrote ' + o.name +' (' + self.getSize(o.name) + ')';
             } else {
                 console.log('[ERROR] header-comment says:');
                 console.dir(err);
