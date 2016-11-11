@@ -20,7 +20,7 @@ function header_comment(o, options) {
         ext = self.utils.getFileExtension(self.outName),
         hfile = self.execDir + '/' + fpath,
         exists = fs.existsSync(hfile),
-        msg;
+        msg = "";
 
     o.content = exists && ext in self.comments ? 
         self.comments[ext].replace(/\%content\%/, self.replace_wiredvars(self.replace_vars(fs.readFileSync(hfile).toString()))) + o.content
