@@ -42,7 +42,7 @@ function header_comment(o, options) {
         fs.writeFile(o.name, o.content, function(err) {
 
             if (err == null) {
-                msg += 'plugin malta-header-comment wrote ' + o.name +' (' + self.getSize(o.name) + ')';
+                msg += 'plugin ' + path.basename(path.dirname(__filename)).white() + ' wrote ' + o.name +' (' + self.getSize(o.name) + ')';
             } else {
                 console.log('[ERROR] header-comment says:');
                 console.dir(err);
