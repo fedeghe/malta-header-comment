@@ -1,7 +1,7 @@
 This plugin can be used on: **.html**, **.xml**, **.svg**, **.js**, **.css**, **.less**, **.scss**, **.php**, **.java**, **.ts**
 
 Options :  
-    - **name** : path of the file containing the text that must be prepended, the path is relative to the template folder
+    - **name** : path of the file containing the text that must be prepended, the path is relative to the execution folder
 
 Sample usage:  
 

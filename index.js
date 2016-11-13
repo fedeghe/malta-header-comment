@@ -18,8 +18,8 @@ function header_comment(o, options) {
         start = +new Date,
         // fpath = options.name,
         ext = self.utils.getFileExtension(self.outName),
-        //hfile = self.execDir + '/' + fpath,
-        hfile = path.dirname(self.tplPath) + '/' + options.name,
+        hfile = self.execDir + '/' + fpath,
+        // hfile = path.dirname(self.tplPath) + '/' + options.name,
         exists = fs.existsSync(hfile),
         msg = "";
 
