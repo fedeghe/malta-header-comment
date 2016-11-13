@@ -14,11 +14,12 @@ var fs = require('fs'),
 
 function header_comment(o, options) {
 
-    var start = +new Date,
-        self = this,
-        fpath = options.name,
+    var self = this,
+        start = +new Date,
+        // fpath = options.name,
         ext = self.utils.getFileExtension(self.outName),
-        hfile = self.execDir + '/' + fpath,
+        //hfile = self.execDir + '/' + fpath,
+        hfile = path.dirname(self.tplPath) + '/' + options.name,
         exists = fs.existsSync(hfile),
         msg = "";
 
@@ -35,7 +36,7 @@ function header_comment(o, options) {
         }; 
     }
 
-    self.listen(fpath);
+    self.listen(hfile);
 
     return function (solve, reject){
    
