@@ -1,6 +1,6 @@
 {
   "name": "malta-header-comment",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "Malta plugin to add a header comment",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
