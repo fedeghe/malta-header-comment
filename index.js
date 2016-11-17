@@ -22,19 +22,15 @@ function header_comment(o, options) {
         // hfile = path.dirname(self.tplPath) + '/' + options.name,
         exists = fs.existsSync(hfile),
         msg = "",
-        pluginName = path.basename(path.dirname(__filename)),
-        doErr = function (e) {
-            console.log(('[ERROR on ' + o.name + ' using ' + pluginName + '] :').red());
-            console.dir(e);
-            self.stop();
-        };
+        pluginName = path.basename(path.dirname(__filename));
+
     try {
         o.content = exists && ext in self.comments ? 
             self.comments[ext].replace(/\%content\%/, self.replace_calc(self.replace_wiredvars(self.replace_vars(fs.readFileSync(hfile).toString())))) + o.content
             :
             o.content;
-    } catch(err) {
-        doErr(err);
+    } catch (err) {
+        self.doErr(err, o, pluginName);
     }
     
     if (!exists) {
@@ -49,7 +45,7 @@ function header_comment(o, options) {
 
     return function (solve, reject){
         fs.writeFile(o.name, o.content, function(err) {
-            err && doErr(err);
+            err && self.doErr(err, o, pluginName);
             msg += 'plugin ' + pluginName.white() + ' wrote ' + o.name +' (' + self.getSize(o.name) + ')';
             solve(o);
             self.notifyAndUnlock(start, msg);
