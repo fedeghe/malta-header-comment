@@ -26,7 +26,7 @@ function header_comment(o, options) {
 
     try {
         o.content = exists && ext in self.comments ? 
-            self.comments[ext].replace(/\%content\%/, self.replace_calc(self.replace_wiredvars(self.replace_vars(fs.readFileSync(hfile).toString())))) + o.content
+            self.comments[ext](self.replace_calc(self.replace_wiredvars(self.replace_vars(fs.readFileSync(hfile).toString())))) + o.content
             :
             o.content;
     } catch (err) {
