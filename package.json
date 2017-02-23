@@ -21,7 +21,7 @@
     "url": "https://github.com/fedeghe/malta-header-comment/issues"
   },
   "dependencies": {
-    "malta": ">=3.0.0"
+    "malta": ">=3.4.0"
   },
   "main": "./index.js"
 }
