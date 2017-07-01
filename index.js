@@ -22,13 +22,19 @@ function header_comment(o, options) {
         // hfile = path.dirname(self.tplPath) + '/' + options.name,
         exists = fs.existsSync(hfile),
         msg = "",
-        pluginName = path.basename(path.dirname(__filename));
+        pluginName = path.basename(path.dirname(__filename)),
+        size = 0,
+        hContent;
 
     try {
-        o.content = exists && ext in self.comments ? 
-            self.comments[ext](self.replace_calc(self.replace_wiredvars(self.replace_vars(fs.readFileSync(hfile).toString())))) + o.content
-            :
-            o.content;
+        size = o.content.length;
+
+        if (exists && ext in self.comments) {
+            hContent = self.comments[ext](self.replace_calc(self.replace_wiredvars(self.replace_vars(fs.readFileSync(hfile).toString()))));
+            size += hContent.length;
+            o.content = hContent.replace(/__SIZE__/, '~' + ~~(size/1E3) + 'KB') + o.content
+        }
+
     } catch (err) {
         self.doErr(err, o, pluginName);
     }
@@ -54,5 +60,5 @@ function header_comment(o, options) {
 }
 
 // header_comment.ext = ['js', 'css', 'scss', 'less']; 
-header_comment.ext = ['html', 'xml', 'svg', 'js', 'css', 'less', 'scss', 'php', 'java', 'ts']; 
+header_comment.ext = ['html', 'xml', 'svg', 'js', 'css', 'less', 'scss', 'php', 'java', 'ts', 'jsx']; 
 module.exports = header_comment;
