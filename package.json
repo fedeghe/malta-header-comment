@@ -1,27 +1,27 @@
 {
-  "name": "malta-header-comment",
-  "version": "1.0.6",
-  "description": "Malta plugin to add a header comment",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://fedeghe@github.com/fedeghe/malta-header-comment.git"
-  },
-  "keywords": [
-    "malta",
-    "malta plugin",
-    "malta header comment",
-    "malta header"
-  ],
-  "author": "Federico Ghedina <federico.ghedina@gmail.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/fedeghe/malta-header-comment/issues"
-  },
-  "dependencies": {
-    "malta": ">=3.8.14"
-  },
-  "main": "./index.js"
+    "name": "malta-header-comment",
+    "version": "1.0.6",
+    "description": "Malta plugin to add a header comment",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://fedeghe@github.com/fedeghe/malta-header-comment.git"
+    },
+    "keywords": [
+        "malta",
+        "malta plugin",
+        "malta header comment",
+        "malta header"
+    ],
+    "author": "Federico Ghedina <fedeghe@gmail.com>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/fedeghe/malta-header-comment/issues"
+    },
+    "dependencies": {
+        "malta": ">=3.8.14"
+    },
+    "main": "./index.js"
 }
