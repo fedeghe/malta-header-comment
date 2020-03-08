@@ -9,20 +9,19 @@
  * 
  * pipe support : yes
  */
-var fs = require('fs'),
+const fs = require('fs'),
     path = require('path');
 
 function header_comment(o, options) {
 
     var self = this,
         start = +new Date,
-        // fpath = options.name,
         ext = self.utils.getFileExtension(self.outName),
         hfile = self.execDir + '/' + options.name,
-        // hfile = path.dirname(self.tplPath) + '/' + options.name,
         exists = fs.existsSync(hfile),
-        msg = "",
-        pluginName = path.basename(path.dirname(__filename)),
+        pluginName = path.basename(path.dirname(__filename));
+
+    let msg = "",
         size = 0,
         hContent;
 
@@ -49,8 +48,8 @@ function header_comment(o, options) {
 
     self.listen(hfile);
 
-    return function (solve, reject){
-        fs.writeFile(o.name, o.content, function(err) {
+    return (solve, reject) => {
+        fs.writeFile(o.name, o.content, err => {
             err && self.doErr(err, o, pluginName);
             msg += 'plugin ' + pluginName.white() + ' wrote ' + o.name +' (' + self.getSize(o.name) + ')';
             err

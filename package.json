@@ -20,8 +20,5 @@
     "bugs": {
         "url": "https://github.com/fedeghe/malta-header-comment/issues"
     },
-    "dependencies": {
-        "malta": "^4.0.4"
-    },
     "main": "./index.js"
 }

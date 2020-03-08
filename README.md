@@ -1,6 +1,5 @@
 ---
 [![npm version](https://badge.fury.io/js/malta-header-comment.svg)](http://badge.fury.io/js/malta-header-comment)
-[![Dependencies](https://david-dm.org/fedeghe/malta-header-comment.svg)](https://david-dm.org/fedeghe/malta-header-comment)
 [![npm downloads](https://img.shields.io/npm/dt/malta-header-comment.svg)](https://npmjs.org/package/malta-header-comment)
 [![npm downloads](https://img.shields.io/npm/dm/malta-header-comment.svg)](https://npmjs.org/package/malta-header-comment)  
 ---  
