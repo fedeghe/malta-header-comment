@@ -32,6 +32,9 @@ function header_comment(o, options) {
             hContent = self.comments[ext](self.replace_calc(self.replace_wiredvars(self.replace_vars(fs.readFileSync(hfile).toString()))));
             size += hContent.length;
             o.content = hContent.replace(/__SIZE__/, '~' + ~~(size/1E3) + 'KB') + o.content
+            if (!('nostrict' in options)) {
+                o.content = `'use strict';\n${o.content}`;
+            }
         }
 
     } catch (err) {

@@ -8,12 +8,13 @@ This plugin can be used on: **.html**, **.xml**, **.svg**, **.js**, **.css**, **
 
 Options :  
     - **name** : path of the file containing the text that must be prepended, the path is relative to the execution folder  
+    - nostrict : by default `'no strict';` is added at the top of the script; in case is not desired this is an optional parameter to skip it, the value passed is not relevant 
 
 In the header file it is possible to use the \_\_SIZE\_\_ placeholder, il will be replaced with "~nKB" where _n_ is the size of the output file.  
 
 Sample usage:  
 ```
-malta app/source/style.css public/css -plugins=malta-css-uglify...malta-header-comment[name:\"licence.txt\"]
+malta app/source/style.css public/css -plugins=malta-css-uglify...malta-header-comment[name:\"licence.txt\",nostrict:true]
 ```
 or in the .json file :
 ```
