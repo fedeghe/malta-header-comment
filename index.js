@@ -14,16 +14,33 @@ const fs = require('fs'),
 
 function header_comment(o, options) {
 
-    var self = this,
+    const  self = this,
         start = +new Date,
         ext = self.utils.getFileExtension(self.outName),
         hfile = self.execDir + '/' + options.name,
         exists = fs.existsSync(hfile),
         pluginName = path.basename(path.dirname(__filename));
+        getSize = s => {
+            const factor = 1024;
+            const metric = ['B', 'KB', 'MB', 'GB', 'TB']; /// already GB does not makes much sense! 
+            let i = 0
+            let done = false
+            while (!done) {
+                if (s > factor) {
+                    i++;
+                    s = s / factor
+                } else {
+                    s = parseFloat(s.toFixed(2), 10) + metric[i] || 'Huge file'
+                    done = true
+                }
+            }
+            return s
+        }
 
     let msg = "",
         size = 0,
         hContent;
+
 
     try {
         size = o.content.length;
@@ -31,7 +48,7 @@ function header_comment(o, options) {
         if (exists && ext in self.comments) {
             hContent = self.comments[ext](self.replace_calc(self.replace_wiredvars(self.replace_vars(fs.readFileSync(hfile).toString()))));
             size += hContent.length;
-            o.content = hContent.replace(/__SIZE__/, '~' + ~~(size/1E3) + 'KB') + o.content
+            o.content = hContent.replace(/__SIZE__/, '~' + getSize(size) + o.content)
             if (!('nostrict' in options)) {
                 o.content = `'use strict';\n${o.content}`;
             }
